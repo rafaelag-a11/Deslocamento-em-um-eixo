@@ -43,7 +43,7 @@ function draw() {
     // Atualiza as informações no HTML
     document.getElementById('time').innerText = time.toFixed(2);
     document.getElementById('distance').innerText = distance.toFixed(2);
-    document.getElementById('displacement').innerText = x.toFixed(2);
+    document.getElementById('speed').innerText = speed.toFixed(2); // Mostra a velocidade
 
     requestAnimationFrame(draw); // Chama a próxima animação
 }
