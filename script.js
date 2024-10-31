@@ -7,6 +7,7 @@ const width = 50; // Largura do objeto
 let time = 0; // Tempo em segundos
 let distance = 0; // Espaço percorrido
 const fps = 60; // Frames por segundo
+const timeIncrement = 1 / fps; // Incremento de tempo por frame
 
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height); // Limpa o canvas
@@ -16,13 +17,13 @@ function draw() {
     ctx.fillRect(x, canvas.height / 2 - 25, width, 50);
 
     // Atualiza a posição e o tempo
-    x += speed * (1 / fps);
-    distance += speed * (1 / fps);
-    time += 1 / fps;
+    x += speed * timeIncrement;
+    distance += speed * timeIncrement;
+    time += timeIncrement;
 
     // Reseta a posição se o objeto sair da tela
     if (x > canvas.width) {
-        x = -width;
+        x = -width; // Reseta para fora da tela
         distance = 0; // Reseta o espaço percorrido
     }
 
