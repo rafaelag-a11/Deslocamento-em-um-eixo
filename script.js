@@ -7,6 +7,8 @@ let time = 0;
 let distance = 0;
 const fps = 60;
 const timeIncrement = 1 / fps;
+let animationId; // Para armazenar o ID da animação
+let isRunning = true; // Controle de execução
 
 // Função para desenhar o coração
 function drawHeart(x, y, size) {
@@ -22,6 +24,8 @@ function drawHeart(x, y, size) {
 
 // Função para desenhar no canvas
 function draw() {
+    if (!isRunning) return; // Se não estiver em execução, não desenha
+
     ctx.clearRect(0, 0, canvas.width, canvas.height); // Limpa o canvas
     drawHeart(x + 25, canvas.height / 2 - 10, 40); // Desenha o coração
 
@@ -41,13 +45,32 @@ function draw() {
     document.getElementById('distance').innerText = distance.toFixed(2);
     document.getElementById('speed').innerText = speed.toFixed(2);
 
-    requestAnimationFrame(draw); // Chama a próxima animação
+    animationId = requestAnimationFrame(draw); // Chama a próxima animação
 }
 
 // Aumenta a velocidade ao clicar no botão
 document.getElementById('increaseSpeed').addEventListener('click', () => {
     speed += 1; // Incrementa a velocidade em 1 m/s
     document.getElementById('speed').innerText = speed.toFixed(2); // Atualiza a exibição
+});
+
+// Diminui a velocidade ao clicar no botão
+document.getElementById('decreaseSpeed').addEventListener('click', () => {
+    speed = Math.max(0, speed - 1); // Decrementa a velocidade, não permitindo valores negativos
+    document.getElementById('speed').innerText = speed.toFixed(2); // Atualiza a exibição
+});
+
+// Para a animação
+document.getElementById('stop').addEventListener('click', () => {
+    isRunning = false; // Define a execução como falsa
+});
+
+// Retoma a animação
+document.getElementById('resume').addEventListener('click', () => {
+    if (!isRunning) {
+        isRunning = true; // Define a execução como verdadeira
+        draw(); // Retoma a animação
+    }
 });
 
 // Ajusta o tamanho do canvas
