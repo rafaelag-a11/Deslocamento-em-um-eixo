@@ -9,17 +9,19 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start; /* Mudança para alinhar os itens no topo */
+            justify-content: center; /* Centraliza verticalmente */
             height: 100vh;
             margin: 0;
             background-color: #E6E6FA; /* Cor de fundo roxo claro */
         }
         canvas {
             border: 1px solid black; /* Para visualizar o canvas */
-            margin-top: 20px; /* Espaçamento entre o canvas e os botões */
+            margin-bottom: 10px; /* Espaçamento entre o canvas e os botões */
         }
         div {
-            margin-top: 10px;
+            display: flex; /* Exibe os botões em linha */
+            flex-direction: column; /* Alinha os botões verticalmente */
+            align-items: center; /* Centraliza os botões */
         }
         button {
             margin: 5px; /* Espaçamento entre os botões */
@@ -27,16 +29,9 @@
     </style>
 </head>
 <body>
+    <canvas id="canvas" width="800" height="400"></canvas>
     <div>
         Tempo: <span id="time">0.00</span> s<br>
         Distância: <span id="distance">0.00</span> m<br>
         Velocidade: <span id="speed">2.00</span> m/s<br>
-        <button id="increaseSpeed">Aumentar Velocidade</button>
-        <button id="decreaseSpeed">Diminuir Velocidade</button>
-        <button id="stop">Parar</button>
-        <button id="resume">Retomar</button>
-    </div>
-    <canvas id="canvas" width="800" height="400"></canvas>
-    <script src="script.js"></script>
-</body>
-</html>
+        <button id="increaseSpeed">Aumen
