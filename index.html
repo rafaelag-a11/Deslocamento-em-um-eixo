@@ -1,17 +1,34 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deslocamento em um Eixo</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Animação do Coração</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #E6E6FA; /* Cor de fundo roxo claro */
+        }
+        canvas {
+            border: 1px solid black; /* Para visualizar o canvas */
+        }
+        div {
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
-    <canvas id="canvas" width="600" height="200"></canvas>
-    <div id="info">
-        <p>Tempo: <span id="time">0</span> s</p>
-        <p>Espaço Percorrido: <span id="distance">0</span> m</p>
-        <p>Velocidade: <span id="speed">0</span> m/s</p>
+    <canvas id="canvas"></canvas>
+    <div>
+        Tempo: <span id="time">0.00</span> s<br>
+        Distância: <span id="distance">0.00</span> m<br>
+        Velocidade: <span id="speed">2.00</span> m/s<br>
+        <button id="increaseSpeed">Aumentar Velocidade</button>
     </div>
     <script src="script.js"></script>
 </body>

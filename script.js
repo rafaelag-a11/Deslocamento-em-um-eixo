@@ -24,7 +24,7 @@ function drawHeart(x, y, size) {
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height); // Limpa o canvas
     drawHeart(x + 25, canvas.height / 2 - 10, 40); // Desenha o coração
-}
+
     // Atualiza a posição e o tempo
     x += speed * timeIncrement;
     distance += speed * timeIncrement;
@@ -41,4 +41,23 @@ function draw() {
     document.getElementById('distance').innerText = distance.toFixed(2);
     document.getElementById('speed').innerText = speed.toFixed(2);
 
-    requestAnimationFrame(draw); // Chama a próx
+    requestAnimationFrame(draw); // Chama a próxima animação
+}
+
+// Aumenta a velocidade ao clicar no botão
+document.getElementById('increaseSpeed').addEventListener('click', () => {
+    speed += 1; // Incrementa a velocidade em 1 m/s
+    document.getElementById('speed').innerText = speed.toFixed(2); // Atualiza a exibição
+});
+
+// Ajusta o tamanho do canvas
+window.addEventListener('resize', () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+});
+
+// Tamanho inicial
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+draw(); // Inicia a animação
