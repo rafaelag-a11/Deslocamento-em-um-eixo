@@ -19,6 +19,7 @@
             margin-bottom: 10px; /* Espaçamento entre o canvas e os botões */
         }
         div {
+            margin-top: -20px; /* Mova o contêiner dos botões para cima */
             display: flex; /* Exibe os botões em linha */
             flex-direction: column; /* Alinha os botões verticalmente */
             align-items: center; /* Centraliza os botões */
@@ -34,4 +35,11 @@
         Tempo: <span id="time">0.00</span> s<br>
         Distância: <span id="distance">0.00</span> m<br>
         Velocidade: <span id="speed">2.00</span> m/s<br>
-        <button id="increaseSpeed">Aumen
+        <button id="increaseSpeed">Aumentar Velocidade</button>
+        <button id="decreaseSpeed">Diminuir Velocidade</button>
+        <button id="stop">Parar</button>
+        <button id="resume">Retomar</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
