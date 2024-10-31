@@ -7,7 +7,6 @@ let time = 0;
 let distance = 0;
 const fps = 60;
 const timeIncrement = 1 / fps;
-let animationId; // Para armazenar o ID da animação
 let isRunning = true; // Controle de execução
 
 // Função para desenhar o coração
@@ -45,19 +44,17 @@ function draw() {
     document.getElementById('distance').innerText = distance.toFixed(2);
     document.getElementById('speed').innerText = speed.toFixed(2);
 
-    animationId = requestAnimationFrame(draw); // Chama a próxima animação
+    requestAnimationFrame(draw); // Chama a próxima animação
 }
 
 // Aumenta a velocidade ao clicar no botão
 document.getElementById('increaseSpeed').addEventListener('click', () => {
     speed += 1; // Incrementa a velocidade em 1 m/s
-    document.getElementById('speed').innerText = speed.toFixed(2); // Atualiza a exibição
 });
 
 // Diminui a velocidade ao clicar no botão
 document.getElementById('decreaseSpeed').addEventListener('click', () => {
     speed = Math.max(0, speed - 1); // Decrementa a velocidade, não permitindo valores negativos
-    document.getElementById('speed').innerText = speed.toFixed(2); // Atualiza a exibição
 });
 
 // Para a animação
